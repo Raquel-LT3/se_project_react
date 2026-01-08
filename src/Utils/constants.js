@@ -1,18 +1,18 @@
 // src/utils/constants.js
 
 // src/Utils/constants.js
-import daySunny from "../Assets/Day-Sunny.svg";
-import nightSunny from "../Assets/Night-Sunny.svg";
-import dayCloudy from "../Assets/Day-Cloudy.svg";
-import nightCloudy from "../Assets/Night-Cloudy.svg";
-import dayRain from "../Assets/Day-Rain.svg";
-import nightRain from "../Assets/Night-Rain.svg";
-import daySnow from "../Assets/Day-Snow.svg";
-import nightSnow from "../Assets/Night-Snow.svg";
-import dayStorm from "../Assets/Day-Storm.svg";
-import nightStorm from "../Assets/Night-Storm.svg";
-import dayFog from "../Assets/Day-Fog.svg";
-import nightFog from "../Assets/Night-Fog.svg";
+import daySunny from "../images/Day-Sunny.svg";
+import nightSunny from "../images/Night-Sunny.svg";
+import dayCloudy from "../images/Day-Cloudy.svg";
+import nightCloudy from "../images/Night-Cloudy.svg";
+import dayRain from "../images/Day-Rain.svg";
+import nightRain from "../images/Night-Rain.svg";
+import daySnow from "../images/Day-Snow.svg";
+import nightSnow from "../images/Night-Snow.svg";
+import dayStorm from "../images/Day-Storm.svg";
+import nightStorm from "../images/Night-Storm.svg";
+import dayFog from "../images/Day-Fog.svg";
+import nightFog from "../images/Night-Fog.svg";
 
 export const weatherOptions = [
   { url: daySunny, day: true, condition: "clear" },

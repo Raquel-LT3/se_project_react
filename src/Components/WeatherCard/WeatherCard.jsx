@@ -1,7 +1,7 @@
 // src/components/WeatherCard/WeatherCard.jsx
 
 import "./WeatherCard.css";
-import { weatherOptions } from "../../Utils/constants";
+import { weatherOptions } from "../../utils/constants";
 
 function WeatherCard({ weatherData }) {
   const weatherOption = weatherOptions.find((option) => {

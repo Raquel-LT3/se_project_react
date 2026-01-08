@@ -1,7 +1,7 @@
 // src/components/Header/Header.jsx
 import "./Header.css";
-import logo from "../../Assets/Logo.svg";
-import avatar from "../../Assets/Terrence Tegegne.svg";
+import logo from "../../images/Logo.svg";
+import avatar from "../../images/Terrence Tegegne.svg";
 
 function Header({ onCreateModal }) {
   const currentDate = new Date().toLocaleString("default", {

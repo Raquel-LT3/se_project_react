@@ -1,6 +1,5 @@
 // src/utils/constants.js
 
-// src/Utils/constants.js
 import daySunny from "../images/Day-Sunny.svg";
 import nightSunny from "../images/Night-Sunny.svg";
 import dayCloudy from "../images/Day-Cloudy.svg";

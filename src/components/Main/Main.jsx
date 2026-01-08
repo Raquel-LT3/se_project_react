@@ -3,7 +3,7 @@ import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
 import "../ItemCard/Itemcard.css";
 import "./Main.css";
-import { defaultClothingItems } from "../../Utils/clothingItems";
+import { defaultClothingItems } from "../../utils/clothingItems";
 
 function Main({ weatherData, onCardClick }) { 
   return (

@@ -7,13 +7,13 @@
   padding: 40px 0; /* Vertical padding 40px */
   margin: 0 auto;
   width: 100%;
-  max-width: 1360px; /* Matches your card grid width */
+  max-width: 1360px; 
   font-family: "Cabinet Grotesk", sans-serif;
 }
 
 .footer__name,
 .footer__year {
-  font-weight: 400; /* Usually thinner than the bold headers */
+  font-weight: 400;
   font-size: 16px;
   line-height: 20px;
   margin: 0;

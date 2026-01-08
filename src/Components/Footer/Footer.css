@@ -1,0 +1,21 @@
+/* src/components/Footer/Footer.css */
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 0; /* Vertical padding 40px */
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1360px; /* Matches your card grid width */
+  font-family: "Cabinet Grotesk", sans-serif;
+}
+
+.footer__name,
+.footer__year {
+  font-weight: 400; /* Usually thinner than the bold headers */
+  font-size: 16px;
+  line-height: 20px;
+  margin: 0;
+  color: #000000;
+}

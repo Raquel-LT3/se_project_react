@@ -1,0 +1,23 @@
+/* src/components/App/App.css */
+
+@import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700&display=swap');
+
+body {
+  margin: 0;
+  background-color:#5A6F8D; /* This is the light blue/grey from the design */
+  min-height: 100vh;         
+}
+
+.page {
+    overflow: hidden;
+    width: 100%;
+    padding: 0 10px;
+}
+
+.page__content {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 20px;
+     background-color: #f3f3f3;
+}
+

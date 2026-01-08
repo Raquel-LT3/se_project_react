@@ -1,0 +1,66 @@
+/* src/components/ItemCard/ItemCard.css */
+
+.cards {
+  width: 100%;
+  max-width: 1360px;
+  margin-top: 40px;
+}
+
+.cards__text {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  margin: 0 0 34px 0; 
+  text-align: left;
+}
+
+.cards__list {
+  display: flex;         
+  flex-direction: row;   
+  flex-wrap: wrap;      
+  gap: 20px;            
+  padding: 0;       
+  margin: 0;
+  list-style: none;
+  width: 100%;
+}
+ 
+.card {
+  position: relative;
+  width: 323px;  
+  height: 326px; 
+  background-color: #E0E0E0;
+  border-radius: 12px;
+  flex-shrink: 0;
+  overflow: hidden; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card__name {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%); 
+  width: fit-content;    
+  background-color: #ffffff;
+  opacity: 0.7;
+  padding: 2px 12px;
+  border-radius: 4px;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  z-index: 2;
+  white-space: nowrap; 
+}
+
+.card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; 
+  border-radius: 12px;
+  display: block;
+}

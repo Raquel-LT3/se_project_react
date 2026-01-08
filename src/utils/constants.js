@@ -26,8 +26,12 @@ export const weatherOptions = [
   { url: nightStorm, day: false, condition: "thunderstorm" },
   { url: dayFog, day: true, condition: "fog" },
   { url: nightFog, day: false, condition: "fog" },
+  { url: dayFog, day: true, condition: "haze" },
+  { url: nightFog, day: false, condition: "haze" },
+  { url: dayFog, day: true, condition: "mist" },
+  { url: nightFog, day: false, condition: "mist" },
 ];
 
-export const APIkey = "e2161887eb11b09a7df34ef597dff325";
+export const apiKey = "e2161887eb11b09a7df34ef597dff325";
 export const latitude = "40.7128";
 export const longitude = "-74.0060";

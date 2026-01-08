@@ -1,5 +1,5 @@
 // src/utils/weatherApi.js
-import { APIkey, latitude, longitude } from "./constants";
+import { apiKey, latitude, longitude } from "./constants";
 
 const checkResponse = (res) => {
   if (res.ok) {
@@ -10,7 +10,7 @@ const checkResponse = (res) => {
 
 export const getForecastWeather = () => {
   return fetch(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}`
+    `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${apiKey}`
   ).then(checkResponse);
 };
 

@@ -3,7 +3,7 @@ import "./Header.css";
 import logo from "../../images/Logo.svg";
 import avatar from "../../images/Terrence Tegegne.svg";
 
-function Header({ onCreateModal }) {
+function Header({ onCreateModal, city }) { 
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -12,8 +12,7 @@ function Header({ onCreateModal }) {
   return (
     <header className="header">
       <img className="header__logo" src={logo} alt="Logo" />
-
-      <p className="header__date-and-location">{currentDate}, New York</p>
+      <p className="header__date-and-location">{currentDate}, {city}</p>
 
       <button
         onClick={onCreateModal}

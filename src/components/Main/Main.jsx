@@ -1,11 +1,13 @@
 // src/components/Main/Main.jsx
+
 import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
-import "../ItemCard/Itemcard.css";
+import "../ItemCard/ItemCard.css";
 import "./Main.css";
-import { defaultClothingItems } from "../../utils/clothingItems";
 
-function Main({ weatherData, onCardClick }) { 
+
+// Change defaultClothingItems to clothingItems in the props
+function Main({ weatherData, onCardClick, clothingItems }) { 
   return (
     <main className="main">
       <WeatherCard weatherData={weatherData} /> 
@@ -15,9 +17,9 @@ function Main({ weatherData, onCardClick }) {
           Today is {weatherData.temp} &deg; F / You may want to wear:
         </p>
         <ul className="cards__list">
-          {defaultClothingItems
+          {/* Change defaultClothingItems to clothingItems */}
+          {clothingItems
             .filter((item) => {
-              // Ensure item.weather matches exactly: "hot", "warm", or "cold"
               return item.weather === weatherData.type;
             })
             .map((item) => {

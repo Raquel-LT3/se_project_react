@@ -1,17 +1,12 @@
 // src/utils/weatherApi.js
 import { apiKey, latitude, longitude } from "./constants";
 
-const checkResponse = (res) => {
-  if (res.ok) {
-    return res.json();
-  }
-  return Promise.reject(`Error: ${res.status}`);
-};
+import { handleServerResponse } from "./api";
 
 export const getForecastWeather = () => {
   return fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${apiKey}`
-  ).then(checkResponse);
+  ).then(handleServerResponse);
 };
 
 const getWeatherCondition = (temperature) => {
@@ -23,7 +18,7 @@ const getWeatherCondition = (temperature) => {
 export const filterWeatherData = (data) => {
   const result = {};
   result.city = data.name;
-  
+
   const tempF = data.main.temp;
   result.temp = {
     F: Math.round(tempF),
@@ -34,7 +29,7 @@ export const filterWeatherData = (data) => {
 
   // Determine if it's day or night based on sunrise and sunset times
   const { sunrise, sunset } = data.sys;
-  const currentTime = data.dt; 
+  const currentTime = data.dt;
   result.isDay = currentTime >= sunrise && currentTime < sunset;
 
   // Get the main weather condition

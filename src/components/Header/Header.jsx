@@ -1,6 +1,6 @@
 // src/components/Header/Header.jsx
 import "./Header.css";
-import logo from "../../images/logo.svg";
+import logo from "../../images/Logo.svg";
 import avatar from "../../images/Terrence Tegegne.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link, NavLink } from "react-router-dom";

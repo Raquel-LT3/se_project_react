@@ -4,14 +4,13 @@
   display: flex;
   align-items: center;
   position: relative;
-  margin-right: 20px;
   width: 56px;
   height: 28px;
-  background-color: #000000;
+  background-color: #ffffff;
+  border: 1px solid #7e7e7e;
   border-radius: 20px;
   cursor: pointer;
-  padding: 0 4px;
-  justify-content: space-between;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -22,34 +21,53 @@
   position: absolute;
 }
 
-.toggle-switch__slider {
+.toggle-switch__circle {
   position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 24px; 
+  top: 1px;
+  left: 1px;
+  width: 24px;
   height: 24px;
-  background-color: #ffffff;
+  background-color: #000000;
   border-radius: 50%;
   transition: transform 0.3s ease;
   z-index: 1;
 }
 
-.toggle-switch__slider_C {
+.toggle-switch__circle_type_f {
+  transform: translateX(0);
+}
+
+.toggle-switch__circle_type_c {
   transform: translateX(28px);
 }
 
-.toggle-switch__text_F,
-.toggle-switch__text_C {
+.toggle-switch__text {
   font-family: "Cabinet Grotesk", sans-serif;
   font-weight: 700;
   font-size: 14px;
   z-index: 2;
-  margin: 0;
-  width: 24px;
+  width: 28px;
   text-align: center;
-  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.3s ease;
 }
 
 .toggle-switch__text_active {
-  color: #000000;
+  color: #ffffff;
+}
+
+.toggle-switch__text_inactive {
+  color: #7e7e7e;
+  opacity: 0.5;
+}
+
+.toggle-switch:hover {
+  border: 1px solid #000000;
+}
+
+.toggle-switch:hover .toggle-switch__circle {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.toggle-switch {
+  cursor: pointer;
 }

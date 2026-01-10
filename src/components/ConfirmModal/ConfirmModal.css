@@ -1,0 +1,67 @@
+/* src/components/ConfirmModal/ConfirmModal.css */
+
+.modal__content_type_confirm {
+  background-color: #fff !important;
+  border-radius: 20px !important;
+  width: 670px !important;
+  height: 280px !important;
+  min-width: 670px !important;
+  min-height: 280px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box !important;
+}
+
+.modal__confirm-text-container {
+  text-align: center;
+  margin-bottom: 24px !important;
+}
+
+.modal__confirm-text {
+  margin: 0 !important;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #000;
+}
+
+.modal__confirm-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+
+.modal__confirm-button_type_delete {
+  all: unset; 
+  cursor: pointer;
+  color: #ff4d00 !important; 
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.modal__confirm-button_type_cancel {
+  all: unset; 
+  cursor: pointer;
+  color: #000 !important;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.modal__confirm-button_type_delete:hover,
+.modal__confirm-button_type_cancel:hover {
+  opacity: 0.6;
+}

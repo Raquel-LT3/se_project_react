@@ -3,12 +3,18 @@
 import "./ClothesSection.css";
 import ItemCard from "../ItemCard/ItemCard";
 
-function ClothesSection({ onCardClick, clothingItems }) {
+// ClothesSection component to display clothing items and an add button
+function ClothesSection({ onCardClick, clothingItems, handleAddClick }) {
   return (
     <div className="clothes-section">
       <div className="clothes-section__header">
         <p className="clothes-section__title">Your items</p>
-        <button className="clothes-section__add-btn" type="button">
+    
+        <button 
+          className="clothes-section__add-btn" 
+          type="button" 
+          onClick={handleAddClick}
+        >
           + Add new
         </button>
       </div>

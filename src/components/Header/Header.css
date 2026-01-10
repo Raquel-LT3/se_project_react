@@ -51,3 +51,16 @@
   border-radius: 50%;
   object-fit: cover;
 }
+
+.header__link {
+  text-decoration: none; 
+  color: #000;           
+  display: flex;        
+  align-items: center;
+  gap: 12px;
+}
+
+.header__username {
+  margin: 0;
+  color: inherit;       
+}

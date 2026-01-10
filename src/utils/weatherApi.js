@@ -24,23 +24,21 @@ export const filterWeatherData = (data) => {
   const result = {};
   result.city = data.name;
   
-  // Get the raw Fahrenheit from the API
   const tempF = data.main.temp;
-  
-  // Create an object with both units
   result.temp = {
     F: Math.round(tempF),
-    C: Math.round((tempF - 32) * 5 / 9), // Formula for Celsius
+    C: Math.round(((tempF - 32) * 5) / 9),
   };
 
-  // Update getWeatherCondition to look at result.temp.F
   result.type = getWeatherCondition(result.temp.F);
 
-  const currentTime = Math.floor(Date.now() / 1000); 
+  // Determine if it's day or night based on sunrise and sunset times
   const { sunrise, sunset } = data.sys;
+  const currentTime = data.dt; 
   result.isDay = currentTime >= sunrise && currentTime < sunset;
 
-  result.condition = data.weather[0].main.toLowerCase(); 
+  // Get the main weather condition
+  result.condition = data.weather[0].main.toLowerCase();
 
   return result;
 };

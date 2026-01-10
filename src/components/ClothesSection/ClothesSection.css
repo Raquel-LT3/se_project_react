@@ -1,17 +1,16 @@
 /* src/components/ClothesSection/ClothesSection.css */
+
 .clothes-section {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+  flex-grow: 1; /* Allows the section to expand */
+  min-width: 0; /* Critical: prevents flex-item from overflowing */
 }
 
 .clothes-section__header {
   display: flex;
   align-items: center; 
-  gap: 20px; /* Space between 'Your items' and '+ Add new' */
+  gap: 20px;
   margin-top: 8px;
   margin-bottom: 24px;
-  height: 25px; /* Matches Figma height */
 }
 
 .clothes-section__title {
@@ -31,24 +30,39 @@
   font-family: "Cabinet Grotesk", sans-serif;
   font-weight: 700;
   font-size: 20px;
-  line-height: 25px; /* Forces button text to the same baseline as the title */
+  line-height: 25px; 
   display: flex;
   align-items: center;
 }
 
 .clothes-section__items {
-  display: flex;         
-  flex-direction: row;   
-  flex-wrap: wrap;      /* Allows cards to wrap to the next line */
-  gap: 20px;            /* Space between cards */
-  padding: 0;       
+  display: grid;
+  /* repeat(auto-fill) handles wrapping automatically */
+  /* Using 323px fixed width prevents the 'giant gap' */
+  grid-template-columns: repeat(auto-fill, 323px); 
+  gap: 20px; /* Locked physical gap */
+  justify-content: start; /* Keeps cards tucked to the left */
+  padding: 0;
   margin: 0;
   list-style: none;
-  width: 100%;
 }
 
 .clothes-section__items > li {
-  width: 323px;  /* Match the .card width from your correct CSS */
-  height: 326px; /* Match the .card height from your correct CSS */
-  flex-shrink: 0;
+  width: 323px; /* Must match grid-template-columns */
+  height: 326px; /* Matches Figma card height */
+}
+
+@media (max-width: 1200px) {
+  .profile {
+    gap: 40px; /* Reduce the massive gap earlier to prevent card squeezing */
+  }
+}
+
+/* Fix for the 662px "No Gap" issue */
+@media (max-width: 768px) {
+  .profile {
+    flex-direction: column; /* Stack vertically to give cards 100% width */
+    align-items: center;
+    gap: 30px;
+  }
 }

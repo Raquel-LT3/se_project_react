@@ -1,39 +1,65 @@
 /* src/components/ItemModal/ItemModal.css */
 
-
 .modal__content_type_image {
-  background-color: transparent; 
-  padding: 0;                  
-  min-height: auto;             
-  width: fit-content;          
-  max-width: 100%;              
-  overflow: hidden;
+  background-color: #fff;
+  padding: 0 !important; 
+  border-radius: 20px;
+  overflow: hidden; 
+  position: relative;
+  width: 498px; 
+  height: 610px;
+  border: none !important;
   display: flex;
   flex-direction: column;
 }
 
 .modal__image {
   width: 100%;
-  max-height: 496px;
-  object-fit: cover;
+  height: 498px; 
   display: block;
+  object-fit: cover; 
 }
 
 .modal__footer {
-  background-color: #fff; 
-  padding: 20px 20px 32px;
-  border-radius: 0 0 20px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 28px; 
+  background-color: #fff;
+  width: 100%;
+  box-sizing: border-box;
+  flex-grow: 1;
 }
 
-.modal__caption {
-  margin: 0 0 12px 0;
-  font-size: 16px;
-  color: #000;
-}      
+.modal__text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 
-.modal__weather {
+.modal__item-name {
   margin: 0;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
   font-size: 16px;
-  color: #000;
+  line-height: 20px;
+}
+
+.modal__item-weather {
+  margin: 0;
+  font-family: "Cabinet Grotesk", sans-serif;
   font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.modal__delete-button {
+  all: unset;
+  cursor: pointer;
+  color: #ff4d00; 
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 13.62px;
+  margin-top: 4px;
 }

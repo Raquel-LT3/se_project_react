@@ -1,0 +1,54 @@
+/* src/components/ClothesSection/ClothesSection.css */
+.clothes-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.clothes-section__header {
+  display: flex;
+  align-items: center; 
+  gap: 20px; /* Space between 'Your items' and '+ Add new' */
+  margin-top: 8px;
+  margin-bottom: 24px;
+  height: 25px; /* Matches Figma height */
+}
+
+.clothes-section__title {
+  margin: 0 !important;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 25px; 
+}
+
+.clothes-section__add-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.6);
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 25px; /* Forces button text to the same baseline as the title */
+  display: flex;
+  align-items: center;
+}
+
+.clothes-section__items {
+  display: flex;         
+  flex-direction: row;   
+  flex-wrap: wrap;      /* Allows cards to wrap to the next line */
+  gap: 20px;            /* Space between cards */
+  padding: 0;       
+  margin: 0;
+  list-style: none;
+  width: 100%;
+}
+
+.clothes-section__items > li {
+  width: 323px;  /* Match the .card width from your correct CSS */
+  height: 326px; /* Match the .card height from your correct CSS */
+  flex-shrink: 0;
+}

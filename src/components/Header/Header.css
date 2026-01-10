@@ -3,8 +3,7 @@
 .header {
   display: flex;
   align-items: center;
-  padding: 32px 20px 28px;
-  max-width: 1440px;
+  padding: 10px 20px; /* Reduced padding to match design */
   width: 100%;
   box-sizing: border-box;
 }
@@ -15,17 +14,20 @@
 
 .header__date-and-location {
   margin: 0;
-  margin-right: auto;
+  margin-right: auto; 
 }
 
 .header__username,
 .header__date-and-location,
-.header__add-clothes-btn {
+.header__add-clothes-btn,
+.header__link {
   font-family: "Cabinet Grotesk", sans-serif;
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
   letter-spacing: 0;
+  color: #000000;
+  text-decoration: none;
 }
 
 .header__add-clothes-btn {
@@ -33,14 +35,14 @@
   border: none;
   cursor: pointer;
   padding: 0;
-  margin-left: auto;
-  margin-right: 24px;
+ 
 }
 
 .header__user-container {
   display: flex;
   align-items: center;
-  gap: 128px;
+  
+  gap: 20px; 
 }
 
 .header__avatar {

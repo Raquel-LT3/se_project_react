@@ -23,9 +23,18 @@ const getWeatherCondition = (temperature) => {
 export const filterWeatherData = (data) => {
   const result = {};
   result.city = data.name;
-  result.temp = Math.round(data.main.temp);
-  result.type = getWeatherCondition(result.temp);
+  
+  // Get the raw Fahrenheit from the API
+  const tempF = data.main.temp;
+  
+  // Create an object with both units
+  result.temp = {
+    F: Math.round(tempF),
+    C: Math.round((tempF - 32) * 5 / 9), // Formula for Celsius
+  };
 
+  // Update getWeatherCondition to look at result.temp.F
+  result.type = getWeatherCondition(result.temp.F);
 
   const currentTime = Math.floor(Date.now() / 1000); 
   const { sunrise, sunset } = data.sys;

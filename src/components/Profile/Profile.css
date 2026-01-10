@@ -1,0 +1,35 @@
+/* src/components/Profile/Profile.css */
+
+.profile p {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.profile {
+  display: flex;
+  padding: 40px 20px; 
+  gap: 116px; 
+  align-items: flex-start; 
+}
+
+.profile__sidebar {
+  flex-shrink: 0;
+}
+
+.profile__clothing-items {
+  flex-grow: 1;
+  /* This ensures the section has room to show cards side-by-side */
+  min-width: 0; 
+}
+
+.clothes-section__items > li {
+  width: 150px;
+  height: 200px; /* Adjust based on your Main page card height */
+  display: flex;
+}
+
+.clothes-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

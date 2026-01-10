@@ -1,9 +1,11 @@
 // src/components/Header/Header.jsx
 import "./Header.css";
-import logo from "../../images/Logo.svg";
+import logo from "../../images/logo.svg";
 import avatar from "../../images/Terrence Tegegne.svg";
+import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
+import { Link } from "react-router-dom";
 
-function Header({ onCreateModal, city }) { 
+function Header({ onCreateModal, city }) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -11,22 +13,29 @@ function Header({ onCreateModal, city }) {
 
   return (
     <header className="header">
-      <img className="header__logo" src={logo} alt="Logo" />
-      <p className="header__date-and-location">{currentDate}, {city}</p>
-
-      <button
-        onClick={onCreateModal}
-        className="header__add-clothes-btn"
-        type="button"
-      >
-        + Add clothes
-      </button>
+      <Link to="/">
+        <img src={logo} alt="logo" className="header__logo" />
+      </Link>
+      <p className="header__date-and-location">
+        {currentDate}, {city}
+      </p>
 
       <div className="header__user-container">
-        <p className="header__username">Terrence Tegegne</p>
-        <img src={avatar} alt="Terrence Tegegne" className="header__avatar" />
+        <ToggleSwitch />
+        <button
+          type="button"
+          className="header__add-clothes-btn"
+          onClick={onCreateModal}
+        >
+          + Add clothes
+        </button>
+        <Link to="/profile" className="header__link">
+          <p className="header__username">Terrence Tegegne</p>
+        </Link>
+        <img src={avatar} alt="avatar" className="header__avatar" />
       </div>
     </header>
   );
 }
+
 export default Header;

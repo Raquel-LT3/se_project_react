@@ -1,0 +1,55 @@
+/* src/components/ToggleSwitch/ToggleSwitch.css */
+
+.toggle-switch {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-right: 20px;
+  width: 56px;
+  height: 28px;
+  background-color: #000000;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 0 4px;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.toggle-switch__checkbox {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.toggle-switch__slider {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 24px; 
+  height: 24px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+.toggle-switch__slider_C {
+  transform: translateX(28px);
+}
+
+.toggle-switch__text_F,
+.toggle-switch__text_C {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  z-index: 2;
+  margin: 0;
+  width: 24px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.toggle-switch__text_active {
+  color: #000000;
+}

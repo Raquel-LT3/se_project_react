@@ -40,4 +40,4 @@ This project requires **both the frontend and a mock backend server** to be runn
    npm run dev
 
 5. **Open the App**
-   Visit the app in your browser at: http://localhost:5173
+   Visit the app in your browser at: http://localhost:3000

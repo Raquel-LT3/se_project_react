@@ -9,7 +9,7 @@ function ModalWithForm({
   onClose,
   name,
   onSubmit,
-  isButtonDisabled, // 1. Add this prop
+  isButtonDisabled, 
 }) {
   return (
     <div className={`modal modal_type_${name} ${isOpen ? "modal_opened" : ""}`}>
@@ -21,7 +21,7 @@ function ModalWithForm({
           <button 
             type="submit" 
             className="modal__submit" 
-            disabled={isButtonDisabled} // 2. Connect the disabled state
+            disabled={isButtonDisabled} 
           >
             {buttonText}
           </button>

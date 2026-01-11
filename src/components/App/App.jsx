@@ -10,7 +10,7 @@ import Footer from "../Footer/Footer";
 import ItemModal from "../ItemModal/ItemModal";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import ConfirmModal from "../ConfirmModal/ConfirmModal";
-import { getItems, addItems, deleteItems } from "../../utils/api";
+import { getItems, addItem, deleteItem } from "../../utils/api";
 import { getForecastWeather, filterWeatherData } from "../../utils/weatherApi";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 
@@ -40,7 +40,7 @@ function App() {
   };
 
   const handleDeleteItem = (item) => {
-    deleteItems(item._id)
+    deleteItem(item._id)
       .then(() => {
         const newClothingItems = clothingItems.filter((card) => {
           return card._id !== item._id;
@@ -56,7 +56,7 @@ function App() {
   };
 
   const handleConfirmDelete = () => {
-    deleteItems(selectedCard._id)
+    deleteItem(selectedCard._id)
       .then(() => {
         setClothingItems(
           clothingItems.filter((item) => item._id !== selectedCard._id)
@@ -67,7 +67,7 @@ function App() {
   };
 
   const handleAddItemSubmit = (inputValues) => {
-    addItems(inputValues)
+    addItem(inputValues) 
       .then((newItem) => {
         setClothingItems([newItem, ...clothingItems]);
         closeActiveModal();

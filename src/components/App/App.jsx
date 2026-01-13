@@ -1,4 +1,3 @@
-// src/components/App/App.jsx
 import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
@@ -39,22 +38,22 @@ function App() {
     setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
   };
 
-  const handleDeleteItem = (item) => {
-    deleteItem(item._id)
-      .then(() => {
-        const newClothingItems = clothingItems.filter((card) => {
-          return card._id !== item._id;
-        });
-        setClothingItems(newClothingItems);
-        closeActiveModal();
-      })
-      .catch(console.error);
-  };
-
   const handleDeleteClick = () => {
     setActiveModal("delete-confirmation");
   };
 
+  // UPDATED: Receives resetForm and uses descriptive error logging
+  const handleAddItemSubmit = (inputValues, resetForm) => {
+    addItem(inputValues)
+      .then((newItem) => {
+        setClothingItems([newItem, ...clothingItems]);
+        closeActiveModal();
+        resetForm(); // Clears form after successful API response
+      })
+      .catch((err) => console.error("API Error:", err)); // Descriptive error
+  };
+
+  // UPDATED: Using descriptive error logging
   const handleConfirmDelete = () => {
     deleteItem(selectedCard._id)
       .then(() => {
@@ -63,17 +62,9 @@ function App() {
         );
         closeActiveModal();
       })
-      .catch(console.error);
+      .catch((err) => console.error("API Error:", err)); // Descriptive error
   };
 
-  const handleAddItemSubmit = (inputValues) => {
-    addItem(inputValues) 
-      .then((newItem) => {
-        setClothingItems([newItem, ...clothingItems]);
-        closeActiveModal();
-      })
-      .catch(console.error);
-  };
   // Fetch Weather
   useEffect(() => {
     getForecastWeather()
@@ -81,16 +72,18 @@ function App() {
         const decodedData = filterWeatherData(data);
         setWeatherData(decodedData);
       })
-      .catch(console.error);
+      .catch((err) => console.error("API Error:", err));
   }, []);
 
+  // Fetch Items
   useEffect(() => {
     getItems()
       .then((data) => {
         setClothingItems(data.reverse());
       })
-      .catch(console.error);
+      .catch((err) => console.error("API Error:", err));
   }, []);
+
   return (
     <CurrentTemperatureUnitContext.Provider
       value={{ currentTemperatureUnit, handleToggleSwitchChange }}
@@ -133,7 +126,6 @@ function App() {
           onClose={closeActiveModal}
           onDelete={handleDeleteClick}
         />
-
         <ConfirmModal
           isOpen={activeModal === "delete-confirmation"}
           onClose={closeActiveModal}

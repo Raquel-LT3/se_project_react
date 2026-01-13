@@ -1,4 +1,3 @@
-// src/hooks/useForm.js
 import { useState } from "react";
 
 export function useForm(inputValues) {
@@ -6,8 +5,12 @@ export function useForm(inputValues) {
 
   const handleChange = (event) => {
     const { value, name } = event.target;
-    setValues({ ...values, [name]: value }); 
+    setValues({ ...values, [name]: value });
   };
 
-  return { values, handleChange, setValues };
+  const handleReset = () => {
+    setValues(inputValues);
+  };
+
+  return { values, handleChange, setValues, handleReset };
 }

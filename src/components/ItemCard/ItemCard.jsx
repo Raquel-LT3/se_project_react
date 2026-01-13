@@ -2,8 +2,7 @@
 import "./ItemCard.css";
 
 function ItemCard({ item, onCardClick }) {
-// Determine the image source, accommodating different property names
-  const imageSrc = item.imageUrl || item.link;
+  const imageSrc = item.imageUrl;
 
   return (
     <li className="card">

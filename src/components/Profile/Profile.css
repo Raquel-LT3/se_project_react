@@ -32,3 +32,12 @@
     gap: 30px;
   }
 }
+
+
+@media (max-width: 1200px) {
+  .profile {
+    gap: 40px; 
+  }
+}
+
+

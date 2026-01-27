@@ -2,7 +2,6 @@
 
 export const baseUrl = "http://localhost:3001";
 
-// Helper function to check response
 function checkResponse(res) {
   if (res.ok) {
     return res.json();
@@ -10,7 +9,6 @@ function checkResponse(res) {
   return Promise.reject(`Error: ${res.status}`);
 }
 
-// Register (Signup)
 export const register = (name, avatar, email, password) => {
   return fetch(`${baseUrl}/signup`, {
     method: "POST",
@@ -21,7 +19,6 @@ export const register = (name, avatar, email, password) => {
   }).then(checkResponse);
 };
 
-// Login (Signin)
 export const authorize = (email, password) => {
   return fetch(`${baseUrl}/signin`, {
     method: "POST",
@@ -32,7 +29,6 @@ export const authorize = (email, password) => {
   }).then(checkResponse);
 };
 
-// Token Validation
 export const checkToken = (token) => {
   return fetch(`${baseUrl}/users/me`, {
     method: "GET",
@@ -41,4 +37,15 @@ export const checkToken = (token) => {
       Authorization: `Bearer ${token}`,
     },
   }).then(checkResponse);
+};
+
+export const updateProfile = ({ name, avatar }, token) => {
+  return fetch(`${baseUrl}/users/me`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ name, avatar }),
+  }).then(checkResponse); 
 };

@@ -11,6 +11,7 @@ import Profile from "../Profile/Profile";
 import Footer from "../Footer/Footer";
 import ItemModal from "../ItemModal/ItemModal";
 import AddItemModal from "../AddItemModal/AddItemModal";
+import EditProfileModal from "../EditProfileModal/EditProfileModal";
 import ConfirmModal from "../ConfirmModal/ConfirmModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
@@ -114,6 +115,17 @@ function App() {
       .catch(console.error);
   };
 
+  const handleUpdateUser = (userData) => {
+    const token = localStorage.getItem("jwt");
+    auth
+      .updateProfile(userData, token)
+      .then((res) => {
+        setCurrentUser(res.data || res);
+        closeActiveModal();
+      })
+      .catch((err) => console.error("Update Error:", err));
+  };
+
   const handleLogin = ({ email, password }) => {
     if (!email || !password) return;
 
@@ -122,11 +134,11 @@ function App() {
       .then((data) => {
         if (data.token) {
           localStorage.setItem("jwt", data.token);
-          return auth.checkToken(data.token); 
+          return auth.checkToken(data.token);
         }
       })
       .then((res) => {
-        setCurrentUser(res.data || res); 
+        setCurrentUser(res.data || res);
         setIsLoggedIn(true);
         closeActiveModal();
       })
@@ -222,7 +234,8 @@ function App() {
                       clothingItems={clothingItems}
                       handleAddClick={handleAddClick}
                       onCardLike={handleCardLike}
-                      onLogOut={handleLogOut} 
+                      onLogOut={handleLogOut}
+                      onEditProfileClick={() => setActiveModal("edit-profile")} // Add this prop!
                     />
                   </ProtectedRoute>
                 }
@@ -252,13 +265,17 @@ function App() {
             isOpen={activeModal === "delete-confirmation"}
             onClose={closeActiveModal}
             onDelete={handleConfirmDelete}
-            openRegisterModal={handleRegisterClick}
           />
           <LoginModal
             isOpen={activeModal === "login"}
             onClose={closeActiveModal}
             handleLogin={handleLogin}
             openRegisterModal={handleRegisterClick}
+          />
+          <EditProfileModal
+            isOpen={activeModal === "edit-profile"}
+            onClose={closeActiveModal}
+            onUpdateUser={handleUpdateUser}
           />
         </div>
       </CurrentTemperatureUnitContext.Provider>

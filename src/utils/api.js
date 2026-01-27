@@ -1,12 +1,22 @@
 // src/utils/api.js
 
-export const baseUrl = "http://localhost:3001"; // Or your deployed URL
-
+export const baseUrl = "http://localhost:3001"; 
 export const handleServerResponse = (res) => {
   if (res.ok) {
     return res.json();
   }
   return Promise.reject(`Error: ${res.status}`);
+};
+
+export const updateProfile = ({ name, avatar }, token) => {
+  return fetch(`${baseUrl}/users/me`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ name, avatar }),
+  }).then(handleServerResponse);
 };
 
 export const getItems = () => {

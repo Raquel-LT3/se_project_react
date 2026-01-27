@@ -1,6 +1,5 @@
 // src/components/ItemModal/ItemModal.jsx
 
-
 import { useContext } from "react";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import "./ItemModal.css";
@@ -26,11 +25,11 @@ function ItemModal({ isOpen, card, onClose, onDelete }) {
             <p className="modal__item-name">{card.name}</p>
             <p className="modal__item-weather">Weather: {card.weather}</p>
           </div>
-          
+
           {/* Only render if it's the user's item */}
           {isOwn && (
             <button
-              className={itemDeleteButtonClassName}
+              className="modal__delete-button" 
               type="button"
               onClick={() => onDelete(card)}
             >

@@ -1,4 +1,6 @@
 // src/components/ModalWithForm/ModalWithForm.jsx
+
+
 import "./ModalWithForm.css";
 
 function ModalWithForm({
@@ -9,7 +11,8 @@ function ModalWithForm({
   onClose,
   name,
   onSubmit,
-  isButtonDisabled, 
+  isButtonDisabled,
+  altButton, // Receive the extra button here
 }) {
   return (
     <div className={`modal modal_type_${name} ${isOpen ? "modal_opened" : ""}`}>
@@ -18,13 +21,17 @@ function ModalWithForm({
         <h3 className="modal__title">{title}</h3>
         <form className="modal__form" onSubmit={onSubmit}>
           {children}
-          <button 
-            type="submit" 
-            className="modal__submit" 
-            disabled={isButtonDisabled} 
-          >
-            {buttonText}
-          </button>
+          {/* This container ensures side-by-side alignment per Figma */}
+          <div className="modal__button-container">
+            <button 
+              type="submit" 
+              className="modal__submit" 
+              disabled={isButtonDisabled}
+            >
+              {buttonText}
+            </button>
+            {altButton}
+          </div>
         </form>
       </div>
     </div>

@@ -182,10 +182,3 @@
   min-height: 304px;
 }
 
-.header__auth-btn, .header__username {
-  font-family: "Cabinet Grotesk", sans-serif;
-  font-weight: 700; 
-  font-size: 20px; 
-  line-height: 100%; 
-  color: #000;
-}

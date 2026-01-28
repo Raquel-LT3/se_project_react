@@ -141,6 +141,7 @@ function App() {
         setCurrentUser(res.data || res);
         setIsLoggedIn(true);
         closeActiveModal();
+        navigate("/");
       })
       .catch(console.error);
   };
@@ -174,13 +175,15 @@ function App() {
       .catch((err) => console.error("API Error:", err));
   }, []);
 
-  useEffect(() => {
+useEffect(() => {
     getItems()
       .then((res) => {
-        setClothingItems(res.data.reverse());
+        const items = res.data || res;
+        setClothingItems([...items].reverse());
       })
       .catch((err) => console.error("API Error:", err));
   }, []);
+
 
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
@@ -197,6 +200,7 @@ function App() {
         });
     }
   }, []);
+
 
   // Render the App component
   return (
@@ -235,7 +239,7 @@ function App() {
                       handleAddClick={handleAddClick}
                       onCardLike={handleCardLike}
                       onLogOut={handleLogOut}
-                      onEditProfileClick={() => setActiveModal("edit-profile")} // Add this prop!
+                      onEditProfileClick={() => setActiveModal("edit-profile")} 
                     />
                   </ProtectedRoute>
                 }

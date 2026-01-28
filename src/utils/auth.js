@@ -1,13 +1,6 @@
 // src/utils/auth.js
 
-export const baseUrl = "http://localhost:3001";
-
-function checkResponse(res) {
-  if (res.ok) {
-    return res.json();
-  }
-  return Promise.reject(`Error: ${res.status}`);
-}
+import { handleServerResponse, baseUrl } from "./api";
 
 export const register = (name, avatar, email, password) => {
   return fetch(`${baseUrl}/signup`, {
@@ -16,7 +9,7 @@ export const register = (name, avatar, email, password) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ name, avatar, email, password }),
-  }).then(checkResponse);
+  }).then(handleServerResponse);
 };
 
 export const authorize = (email, password) => {
@@ -26,7 +19,7 @@ export const authorize = (email, password) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ email, password }),
-  }).then(checkResponse);
+  }).then(handleServerResponse); // Expecting a token in response
 };
 
 export const checkToken = (token) => {
@@ -36,7 +29,7 @@ export const checkToken = (token) => {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-  }).then(checkResponse);
+  }).then(handleServerResponse);
 };
 
 export const updateProfile = ({ name, avatar }, token) => {
@@ -47,5 +40,5 @@ export const updateProfile = ({ name, avatar }, token) => {
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({ name, avatar }),
-  }).then(checkResponse); 
+  }).then(handleServerResponse); 
 };

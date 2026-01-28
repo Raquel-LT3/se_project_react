@@ -1,18 +1,35 @@
 // src/components/Profile/Profile.jsx
 
+import React, { useContext } from "react";
 import "./Profile.css";
 import SideBar from "../SideBar/SideBar";
 import ClothesSection from "../ClothesSection/ClothesSection";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 
+function Profile({ 
+  onCardClick, 
+  clothingItems, 
+  handleAddClick, 
+  onCardLike, 
+  onLogOut,   
+  onEditProfileClick 
+}) {
+  const currentUser = useContext(CurrentUserContext);
+  const userItems = clothingItems.filter((item) => {    // Filter items owned by current user
+    return item.owner === currentUser?._id;
+  });
 
-function Profile({ onCardClick, clothingItems, handleAddClick }) {
   return (
     <div className="profile">
-      <SideBar />
+      <SideBar 
+        onLogOut={onLogOut} 
+        onEditProfileClick={onEditProfileClick} 
+      />
       <ClothesSection 
         onCardClick={onCardClick} 
-        clothingItems={clothingItems}
+        clothingItems={userItems} 
         handleAddClick={handleAddClick} 
+        onCardLike={onCardLike} 
       />
     </div>
   );

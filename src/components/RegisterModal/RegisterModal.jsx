@@ -2,7 +2,12 @@
 import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const RegisterModal = ({ isOpen, onClose, handleRegistration, openLoginModal }) => {
+const RegisterModal = ({
+  isOpen,
+  onClose,
+  handleRegistration,
+  openLoginModal,
+}) => {
   const [values, setValues] = useState({
     email: "",
     password: "",
@@ -15,7 +20,8 @@ const RegisterModal = ({ isOpen, onClose, handleRegistration, openLoginModal }) 
     setValues({ ...values, [name]: value });
   };
 
-  const isFormInvalid = !values.email || !values.password || !values.name || !values.avatar;
+  const isFormInvalid =
+    !values.email || !values.password || !values.name || !values.avatar;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,7 +38,11 @@ const RegisterModal = ({ isOpen, onClose, handleRegistration, openLoginModal }) 
       name="register"
       isButtonDisabled={isFormInvalid}
       altButton={
-        <button type="button" className="modal__submit-alt" onClick={openLoginModal}>
+        <button
+          type="button"
+          className="modal__submit-alt"
+          onClick={openLoginModal}
+        >
           or Log In
         </button>
       }
@@ -41,6 +51,7 @@ const RegisterModal = ({ isOpen, onClose, handleRegistration, openLoginModal }) 
         Email*
         <input
           name="email"
+          type="email" 
           className="modal__input"
           placeholder="Email"
           required

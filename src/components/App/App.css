@@ -1,23 +1,22 @@
 /* src/components/App/App.css */
 
-@import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700&display=swap');
+@import url("https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700&display=swap");
 
 body {
   margin: 0;
-  background-color:#5A6F8D; 
-  min-height: 100vh;         
+  background-color: #5a6f8d;
+  min-height: 100vh;
 }
 
 .page {
-    overflow: hidden;
-    width: 100%;
-    padding: 0 10px;
+  overflow: hidden;
+  width: 100%;
+  padding: 0 10px;
 }
 
 .page__content {
-    max-width: 1360px;
-    margin: 0 auto;
-    padding: 0 20px;
-     background-color: #f3f3f3;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 20px;
+  background-color: #f3f3f3;
 }
-

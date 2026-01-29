@@ -1,28 +1,27 @@
 /* src/components/SideBar/SideBar.css */
 
-
 /* src/components/SideBar/SideBar.css */
 
 .sidebar {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   gap: 24px;
 }
 
 .sidebar__user-info {
   display: flex;
   flex-direction: row;
-  align-items: center; 
-  gap: 12px;          
+  align-items: center;
+  gap: 12px;
   width: 100%;
 }
 
 .sidebar__avatar {
-  width: 40px;         
+  width: 40px;
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
-  flex-shrink: 0;      
+  flex-shrink: 0;
 }
 
 .sidebar__username {
@@ -31,5 +30,5 @@
   font-weight: 700;
   font-size: 20px;
   line-height: 25px;
-  white-space: nowrap; 
+  white-space: nowrap;
 }

@@ -29,7 +29,7 @@ function ItemModal({ isOpen, card, onClose, onDelete }) {
           {/* Only render if it's the user's item */}
           {isOwn && (
             <button
-              className="modal__delete-button" 
+              className="modal__delete-button"
               type="button"
               onClick={() => onDelete(card)}
             >

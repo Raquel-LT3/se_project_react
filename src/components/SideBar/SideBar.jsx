@@ -18,16 +18,16 @@ function SideBar({ onLogOut, onEditProfileClick }) {
         <p className="sidebar__name">{currentUser?.name}</p>
       </div>
       <div className="sidebar__controls">
-        <button 
-          className="sidebar__edit-btn" 
-          type="button" 
+        <button
+          className="sidebar__edit-btn"
+          type="button"
           onClick={onEditProfileClick}
         >
           Change profile data
         </button>
-        <button 
-          className="sidebar__logout-btn" 
-          type="button" 
+        <button
+          className="sidebar__logout-btn"
+          type="button"
           onClick={onLogOut}
         >
           Log out

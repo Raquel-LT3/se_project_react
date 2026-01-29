@@ -1,6 +1,7 @@
 // src/components/RegisterModal/RegisterModal.jsx
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import { useForm } from "../../hooks/useForm";
 
 const RegisterModal = ({
   isOpen,
@@ -8,25 +9,27 @@ const RegisterModal = ({
   handleRegistration,
   openLoginModal,
 }) => {
-  const [values, setValues] = useState({
+  const { values, handleChange, setValues } = useForm({
     email: "",
     password: "",
     name: "",
     avatar: "",
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setValues({ ...values, [name]: value });
-  };
-
-  const isFormInvalid =
-    !values.email || !values.password || !values.name || !values.avatar;
+  // Reset form when modal opens
+  useEffect(() => {
+    if (isOpen) {
+      setValues({ email: "", password: "", name: "", avatar: "" });
+    }
+  }, [isOpen, setValues]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     handleRegistration(values);
   };
+
+  const isFormInvalid =
+    !values.email || !values.password || !values.name || !values.avatar;
 
   return (
     <ModalWithForm
@@ -51,7 +54,7 @@ const RegisterModal = ({
         Email*
         <input
           name="email"
-          type="email" 
+          type="email"
           className="modal__input"
           placeholder="Email"
           required

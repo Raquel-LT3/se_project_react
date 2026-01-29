@@ -1,3 +1,5 @@
+// src/hooks/useForm.js
+
 import { useState } from "react";
 
 export function useForm(inputValues) {
@@ -8,9 +10,5 @@ export function useForm(inputValues) {
     setValues({ ...values, [name]: value });
   };
 
-  const handleReset = () => {
-    setValues(inputValues);
-  };
-
-  return { values, handleChange, setValues, handleReset };
+  return { values, handleChange, setValues };
 }

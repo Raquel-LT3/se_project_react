@@ -1,25 +1,30 @@
 // src/components/EditProfileModal/EditProfileModal.jsx
 
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import { useForm } from "../../hooks/useForm";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 const EditProfileModal = ({ isOpen, onClose, onUpdateUser }) => {
   const currentUser = useContext(CurrentUserContext);
-  const [name, setName] = useState("");
-  const [avatar, setAvatar] = useState("");
 
-  // Pre-fill the form when the modal opens
+  const { values, handleChange, setValues } = useForm({
+    name: "",
+    avatar: "",
+  });
+
   useEffect(() => {
     if (isOpen && currentUser) {
-      setName(currentUser.name || "");
-      setAvatar(currentUser.avatar || "");
+      setValues({
+        name: currentUser.name || "",
+        avatar: currentUser.avatar || "",
+      });
     }
-  }, [isOpen, currentUser]);
+  }, [isOpen, currentUser, setValues]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onUpdateUser({ name, avatar });
+    onUpdateUser(values);
   };
 
   return (
@@ -39,8 +44,8 @@ const EditProfileModal = ({ isOpen, onClose, onUpdateUser }) => {
           className="modal__input"
           placeholder="Name"
           required
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value={values.name} // Updated from name to values.name
+          onChange={handleChange} // Updated to use handleChange
         />
       </label>
       <label className="modal__label">
@@ -51,8 +56,8 @@ const EditProfileModal = ({ isOpen, onClose, onUpdateUser }) => {
           className="modal__input"
           placeholder="Avatar URL"
           required
-          value={avatar}
-          onChange={(e) => setAvatar(e.target.value)}
+          value={values.avatar} // Updated from avatar to values.avatar
+          onChange={handleChange} // Updated to use handleChange
         />
       </label>
     </ModalWithForm>

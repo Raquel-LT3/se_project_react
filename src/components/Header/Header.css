@@ -3,7 +3,7 @@
 .header {
   display: flex;
   align-items: center;
-  padding: 10px 20px; 
+  padding: 10px 20px;
   width: 100%;
   box-sizing: border-box;
 }
@@ -14,7 +14,7 @@
 
 .header__date-and-location {
   margin: 0;
-  margin-right: auto; 
+  margin-right: auto;
 }
 
 .header__username,
@@ -35,14 +35,13 @@
   border: none;
   cursor: pointer;
   padding: 0;
- 
 }
 
 .header__user-container {
   display: flex;
   align-items: center;
-  
-  gap: 20px; 
+
+  gap: 20px;
 }
 
 .header__avatar {
@@ -53,16 +52,16 @@
 }
 
 .header__link {
-  text-decoration: none; 
-  color: #000;           
-  display: flex;        
+  text-decoration: none;
+  color: #000;
+  display: flex;
   align-items: center;
   gap: 12px;
 }
 
 .header__username {
   margin: 0;
-  color: inherit;       
+  color: inherit;
 }
 
 .header__auth {
@@ -72,7 +71,7 @@
 }
 
 .header__auth-btn {
-  all: unset; 
+  all: unset;
   cursor: pointer;
   font-family: "Cabinet Grotesk", sans-serif;
   font-weight: 700;
@@ -88,11 +87,11 @@
 }
 
 .header__avatar-placeholder {
-  width: 40px; 
-  height: 40px; 
-  border-radius: 50%; 
-  border: 1px solid rgba(0, 0, 0, 0.5); 
-  background-color: rgba(0, 0, 0, 0.2); 
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;

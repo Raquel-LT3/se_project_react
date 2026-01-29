@@ -146,6 +146,19 @@ function App() {
       .catch(console.error);
   };
 
+  useEffect(() => {
+    if (!activeModal) return; // Only add listener if a modal is open
+
+    const handleEscClose = (e) => {
+      if (e.key === "Escape") {
+        closeActiveModal();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscClose);
+    return () => document.removeEventListener("keydown", handleEscClose);
+  }, [activeModal]); // Re-run when activeModal changes
+
   const handleCardLike = ({ id, isLiked }) => {
     const token = localStorage.getItem("jwt");
 
@@ -175,7 +188,7 @@ function App() {
       .catch((err) => console.error("API Error:", err));
   }, []);
 
-useEffect(() => {
+  useEffect(() => {
     getItems()
       .then((res) => {
         const items = res.data || res;
@@ -183,7 +196,6 @@ useEffect(() => {
       })
       .catch((err) => console.error("API Error:", err));
   }, []);
-
 
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
@@ -201,6 +213,15 @@ useEffect(() => {
     }
   }, []);
 
+  useEffect(() => {
+    const closeByEscape = (e) => {
+      if (e.key === "Escape") {
+        closeActiveModal();
+      }
+    };
+    document.addEventListener("keydown", closeByEscape);
+    return () => document.removeEventListener("keydown", closeByEscape);
+  }, []);
 
   // Render the App component
   return (
@@ -239,7 +260,7 @@ useEffect(() => {
                       handleAddClick={handleAddClick}
                       onCardLike={handleCardLike}
                       onLogOut={handleLogOut}
-                      onEditProfileClick={() => setActiveModal("edit-profile")} 
+                      onEditProfileClick={() => setActiveModal("edit-profile")}
                     />
                   </ProtectedRoute>
                 }

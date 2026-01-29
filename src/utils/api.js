@@ -1,6 +1,6 @@
 // src/utils/api.js
 
-export const baseUrl = "http://localhost:3001"; 
+export const baseUrl = "http://localhost:3001";
 export const handleServerResponse = (res) => {
   if (res.ok) {
     return res.json();

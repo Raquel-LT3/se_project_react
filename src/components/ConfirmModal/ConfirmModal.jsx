@@ -14,13 +14,16 @@ function ConfirmModal({ isOpen, onClose, onDelete }) {
           <p className="modal__confirm-text">This action is irreversible.</p>
         </div>
         <div className="modal__confirm-buttons">
-          <button 
-            className="modal__confirm-button_type_delete" 
+          <button
+            className="modal__confirm-button_type_delete"
             onClick={onDelete}
           >
             Yes, delete item
           </button>
-          <button className="modal__confirm-button_type_cancel" onClick={onClose}>
+          <button
+            className="modal__confirm-button_type_cancel"
+            onClick={onClose}
+          >
             Cancel
           </button>
         </div>

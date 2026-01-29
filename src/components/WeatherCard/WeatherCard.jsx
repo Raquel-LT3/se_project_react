@@ -9,7 +9,6 @@ function WeatherCard({ weatherData }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   const temp = weatherData.temp?.[currentTemperatureUnit] || 0;
 
- 
   const weatherOption = weatherOptions.find((option) => {
     return (
       option.day === weatherData.isDay &&

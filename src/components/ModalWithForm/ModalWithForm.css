@@ -26,8 +26,8 @@
 .modal__content {
   background-color: #fff;
   width: 496px;
-  min-height: 456px; 
-  padding: 28px; 
+  min-height: 456px;
+  padding: 28px;
   border-radius: 20px;
   position: relative;
   box-sizing: border-box;
@@ -128,13 +128,11 @@
 
 .modal__button-container {
   display: flex;
-  flex-direction: row; 
+  flex-direction: row;
   align-items: center;
-  gap: 12px; 
-  margin-top: 30px; 
+  gap: 12px;
+  margin-top: 30px;
 }
-
-
 
 .modal__submit:disabled {
   opacity: 0.3;
@@ -166,11 +164,11 @@
   font-size: 14px;
   cursor: pointer;
   padding: 0;
-  opacity: 0.6; 
+  opacity: 0.6;
 }
 
 .modal__error-message {
-  color: #FF4D00; 
+  color: #ff4d00;
   font-family: "Cabinet Grotesk", sans-serif;
   font-size: 12px;
   font-weight: 700;
@@ -181,4 +179,3 @@
 .modal_type_login .modal__content {
   min-height: 304px;
 }
-

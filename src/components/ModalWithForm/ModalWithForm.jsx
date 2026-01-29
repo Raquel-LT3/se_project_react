@@ -1,6 +1,5 @@
 // src/components/ModalWithForm/ModalWithForm.jsx
 
-
 import "./ModalWithForm.css";
 
 function ModalWithForm({
@@ -23,9 +22,9 @@ function ModalWithForm({
           {children}
           {/* This container ensures side-by-side alignment per Figma */}
           <div className="modal__button-container">
-            <button 
-              type="submit" 
-              className="modal__submit" 
+            <button
+              type="submit"
+              className="modal__submit"
               disabled={isButtonDisabled}
             >
               {buttonText}

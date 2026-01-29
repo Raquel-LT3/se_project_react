@@ -40,5 +40,5 @@ export const updateProfile = ({ name, avatar }, token) => {
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({ name, avatar }),
-  }).then(handleServerResponse); 
+  }).then(handleServerResponse);
 };

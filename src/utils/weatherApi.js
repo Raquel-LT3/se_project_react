@@ -5,7 +5,7 @@ import { handleServerResponse } from "./api";
 
 export const getForecastWeather = () => {
   return fetch(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${apiKey}`
+    `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${apiKey}`,
   ).then(handleServerResponse);
 };
 

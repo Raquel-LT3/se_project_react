@@ -1,20 +1,31 @@
+// src/components/AddItemModal/AddItemModal.jsx
+
+import React, { useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useForm } from "../../hooks/useForm";
 
 const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
-  const { values, handleChange, handleReset } = useForm({
+  // Destructure setValues from your useForm hook
+  const { values, handleChange, setValues } = useForm({
     name: "",
     imageUrl: "",
     weather: "",
   });
 
-  const isFormInvalid = !values.name || !values.imageUrl || !values.weather;
+  // Reset form when modal opens
+  useEffect(() => {
+    if (isOpen) {
+      setValues({ name: "", imageUrl: "", weather: "" });
+    }
+  }, [isOpen, setValues]);
 
   const handleSubmit = (e) => {
+    // Updated function name to handleSubmit
     e.preventDefault();
-
-    onAddItem(values, handleReset);
+    onAddItem(values);
   };
+
+  const isFormInvalid = !values.name || !values.imageUrl || !values.weather;
 
   return (
     <ModalWithForm

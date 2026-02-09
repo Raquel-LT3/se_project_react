@@ -3,9 +3,11 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://clothing-app-2026.thedesktop.com",
   "scripts": {
     "dev": "vite --open",
     "build": "vite build",
+    "deploy": "npm run build && scp -r ./dist/* ro29graphics@clothing-app-2026.thedesktop.com:/home/ro29graphics/frontend",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },

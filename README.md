@@ -1,15 +1,14 @@
 # WTWR (What to Wear)
 
-## Links to Projects
-
-- **Backend Repository**: https://github.com/Raquel-LT3/se_project_express.git
-- **Frontend Repository**: https://github.com/Raquel-LT3/se_project_react.git
+##  Live Project
+- **Deployed Site:** [https://clothing-app-2026.thedesktop.com](https://clothing-app-2026.thedesktop.com)
+- **Backend API:** [https://api.clothing-app-2026.thedesktop.com](https://api.clothing-app-2026.thedesktop.com)
 
 ---
 
 ## About the Project
-
-**WTWR (What to Wear)** is a web application that helps users decide what clothing to wear based on the current weather in their location. The app fetches real-time weather data from the **OpenWeather API** and suggests appropriate outfits depending on whether the weather is **Hot**, **Warm**, or **Cold**.
+WTWR (What to Wear) is a React-based application that helps users decide what clothing to wear based on real-time weather data. The app integrates with the 
+**OpenWeather API** and suggests appropriate outfits from the user's personal wardrobe based on temperature ranges (Hot, Warm, or Cold).
 
 ---
 
@@ -36,23 +35,13 @@
 
 ---
 
-## How to Run the Project
+## 🔗 Backend Repository
+[https://github.com/Raquel-LT3/se_project_express](https://github.com/Raquel-LT3/se_project_express)
 
-This project requires **both the frontend and the custom backend server** to be running at the same time.
+---
 
-### 1. Setup the Backend
-
-Clone the [backend repository](https://github.com/Raquel-LT3/se_project_express.git). In the backend folder, run `npm install` and then `npm run dev` to start the server on port 3001. Ensure MongoDB is running on your machine.
-
-### 2. Setup the Frontend
-
-Clone the [frontend repository](https://github.com/Raquel-LT3/se_project_react.git). In the frontend folder, run `npm install` to install dependencies.
-
-### 3. Start the Frontend
-
-In your main terminal window, run:
-`npm run dev`
-
-### 4. Open the App
-
-Visit the app in your browser at: http://localhost:3000
+## 🛠️ How to Run Locally
+1. Clone the repository.
+2. Install dependencies: `npm install`.
+3. Create a `.env` file and add `VITE_API_URL=http://localhost:3001` (for local development).
+4. Start the development server: `npm run dev`.

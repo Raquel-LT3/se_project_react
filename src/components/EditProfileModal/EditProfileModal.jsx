@@ -1,6 +1,6 @@
 // src/components/EditProfileModal/EditProfileModal.jsx
 
-import React, { useEffect, useContext } from "react";
+import { useContext, useEffect } from "react"; 
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useForm } from "../../hooks/useForm";
 import CurrentUserContext from "../../contexts/CurrentUserContext";

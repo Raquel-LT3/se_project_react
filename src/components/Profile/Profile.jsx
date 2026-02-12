@@ -1,6 +1,6 @@
 // src/components/Profile/Profile.jsx
 
-import React, { useContext } from "react";
+import { useContext } from "react";
 import "./Profile.css";
 import SideBar from "../SideBar/SideBar";
 import ClothesSection from "../ClothesSection/ClothesSection";

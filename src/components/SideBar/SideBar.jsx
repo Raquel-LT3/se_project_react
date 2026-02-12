@@ -1,6 +1,6 @@
 // src/components/SideBar/SideBar.jsx
 
-import React, { useContext } from "react";
+import { useContext } from "react";
 import "./SideBar.css";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 

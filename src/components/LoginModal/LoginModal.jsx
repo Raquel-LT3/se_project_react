@@ -1,5 +1,6 @@
 // src/components/LoginModal/LoginModal.jsx
-import React, { useEffect } from "react"; // Added useEffect here
+
+import { useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useForm } from "../../hooks/useForm";
 

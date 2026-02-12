@@ -1,6 +1,6 @@
 // src/components/AddItemModal/AddItemModal.jsx
 
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useForm } from "../../hooks/useForm";
 

@@ -1,8 +1,10 @@
 // src/utils/api.js
 
+/* global process */
 export const baseUrl = process.env.NODE_ENV === "production" 
   ? "https://api.clothing-app-2026.thedesktop.com"
   : "http://localhost:3001";
+  
 export const handleServerResponse = (res) => {
   if (res.ok) {
     return res.json();

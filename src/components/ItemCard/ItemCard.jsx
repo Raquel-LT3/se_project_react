@@ -1,6 +1,6 @@
 // src/components/ItemCard/ItemCard.jsx
 
-import React, { useContext } from "react";
+import { useContext } from "react";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import "./ItemCard.css";
 

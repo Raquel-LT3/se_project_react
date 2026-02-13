@@ -161,25 +161,30 @@ function App() {
 
   const handleCardLike = ({ id, isLiked }) => {
     const token = localStorage.getItem("jwt");
+    // Ensure the functions exist before calling (prevents "n is not a function")
+    if (typeof addCardLike !== "function")
+      return console.error("addCardLike missing");
+    if (typeof removeCardLike !== "function")
+      return console.error("removeCardLike missing");
+
     const apiCall = !isLiked ? addCardLike : removeCardLike;
 
     apiCall(id, token)
       .then((res) => {
+        // Handle both { data: item } and item structures
         const updatedCard = res.data || res;
-        
-        // Update the list
-        setClothingItems((prevCards) =>
-          prevCards.map((c) => (c._id === id ? updatedCard : c))
+
+        setClothingItems((cards) =>
+          cards.map((c) => (c._id === id ? updatedCard : c)),
         );
-        
-        // Update the preview modal if it's currently open for this card
-        if (selectedCard._id === id) {
+
+        // Update modal if it's open
+        if (selectedCard?._id === id) {
           setSelectedCard(updatedCard);
         }
       })
       .catch((err) => console.error("Like Error:", err));
   };
-
 
   useEffect(() => {
     getForecastWeather()

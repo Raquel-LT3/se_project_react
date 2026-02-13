@@ -53,7 +53,7 @@ export const deleteItem = (id, token) => {
 };
 
 export const addCardLike = (itemId, token) => { 
-  return fetch(`${baseUrl}/items/${itemId}/likes`, { // eslint-disable-line
+  return fetch(`${baseUrl}/items/${itemId}/likes`, {
     method: "PUT",
     headers: {
       Authorization: `Bearer ${token}`,

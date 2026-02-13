@@ -162,21 +162,19 @@ function App() {
   const handleCardLike = ({ id, isLiked }) => {
     const token = localStorage.getItem("jwt");
 
-    !isLiked
-      ? addCardLike(id, token)
-          .then((updatedCard) => {
-            setClothingItems((cards) =>
-              cards.map((item) => (item._id === id ? updatedCard : item)),
-            );
-          })
-          .catch((err) => console.error(err))
-      : removeCardLike(id, token)
-          .then((updatedCard) => {
-            setClothingItems((cards) =>
-              cards.map((item) => (item._id === id ? updatedCard : item)),
-            );
-          })
-          .catch((err) => console.error(err));
+    // If not liked, add like; if liked, remove it
+    const apiCall = !isLiked ? addCardLike : removeCardLike;
+
+    apiCall(id, token)
+      .then((res) => {
+        // Ensure we get the card object whether it's res or res.data
+        const updatedCard = res.data || res;
+        
+        setClothingItems((cards) =>
+          cards.map((item) => (item._id === id ? updatedCard : item))
+        );
+      })
+      .catch((err) => console.error("Like Error:", err));
   };
 
   useEffect(() => {

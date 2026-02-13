@@ -52,8 +52,8 @@ export const deleteItem = (id, token) => {
   }).then(handleServerResponse);
 };
 
-export const addCardLike = (id, token) => {
-  return fetch(`${baseUrl}/items/${id}/likes`, {
+export const addCardLike = (itemId, token) => { 
+  return fetch(`${baseUrl}/items/${itemId}/likes`, { // eslint-disable-line
     method: "PUT",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -62,8 +62,8 @@ export const addCardLike = (id, token) => {
   }).then(handleServerResponse);
 };
 
-export const removeCardLike = (id, token) => {
-  return fetch(`${baseUrl}/items/${id}/likes`, {
+export const removeCardLike = (itemId, token) => { 
+  return fetch(`${baseUrl}/items/${itemId}/likes`, {
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${token}`,

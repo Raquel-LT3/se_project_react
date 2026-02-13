@@ -161,21 +161,25 @@ function App() {
 
   const handleCardLike = ({ id, isLiked }) => {
     const token = localStorage.getItem("jwt");
-
-    // If not liked, add like; if liked, remove it
     const apiCall = !isLiked ? addCardLike : removeCardLike;
 
     apiCall(id, token)
       .then((res) => {
-        // Ensure we get the card object whether it's res or res.data
         const updatedCard = res.data || res;
         
-        setClothingItems((cards) =>
-          cards.map((item) => (item._id === id ? updatedCard : item))
+        // Update the list
+        setClothingItems((prevCards) =>
+          prevCards.map((c) => (c._id === id ? updatedCard : c))
         );
+        
+        // Update the preview modal if it's currently open for this card
+        if (selectedCard._id === id) {
+          setSelectedCard(updatedCard);
+        }
       })
       .catch((err) => console.error("Like Error:", err));
   };
+
 
   useEffect(() => {
     getForecastWeather()

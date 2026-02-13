@@ -9,9 +9,10 @@ function ItemCard({ item, onCardClick, onCardLike }) {
   const currentUser = useContext(CurrentUserContext);
 
   // 2. Updated isLiked logic to handle both _id and id
-  const isLiked =
-    currentUser &&
-    item.likes?.some((id) => id === (currentUser._id || currentUser.id));
+  const isLiked = item.likes?.some((user) => {
+    const userId = typeof user === "string" ? user : user._id;
+    return userId === currentUser?._id;
+  });
 
   const itemLikeButtonClassName = `card__like-button ${
     isLiked ? "card__like-button_active" : ""
